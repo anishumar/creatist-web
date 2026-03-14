@@ -66,3 +66,13 @@ body {
 .animate-float {
   animation: float 20s ease-in-out infinite;
 }
+
+@keyframes shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
+}
