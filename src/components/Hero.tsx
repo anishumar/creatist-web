@@ -55,7 +55,7 @@ export default function Hero() {
         >
           {/* Launch Celebration badge removed */}
           
-          <h1 className="text-5xl md:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl md:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1]">
             Create Together. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-pink-500">Build Together.</span>
           </h1>
