@@ -123,9 +123,13 @@ export default function Community() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="absolute right-3 px-10 py-5 rounded-[32px] font-semibold text-xl glass-button disabled:opacity-50"
+                      className={`absolute right-3 px-10 py-5 rounded-[32px] font-semibold text-xl text-white transition-all duration-300 ${
+                        isLoading
+                          ? "bg-white/20 cursor-not-allowed pointer-events-none"
+                          : "bg-brand-accent hover:bg-brand-accent/90"
+                      }`}
                     >
-                      {isLoading ? "..." : "Join"}
+                      Join
                     </button>
                   </div>
                 </motion.form>

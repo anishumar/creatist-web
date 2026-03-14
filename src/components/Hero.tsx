@@ -115,9 +115,13 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="absolute right-2 px-8 py-4 rounded-[24px] font-medium text-lg glass-button disabled:opacity-50"
+                      className={`absolute right-2 px-8 py-4 rounded-[24px] font-medium text-lg text-white transition-all duration-300 ${
+                        isLoading
+                          ? "bg-white/20 cursor-not-allowed pointer-events-none"
+                          : "bg-brand-accent hover:bg-brand-accent/90"
+                      }`}
                     >
-                      {isLoading ? "..." : "Join"}
+                      Join
                     </button>
                   </div>
                 </motion.form>
