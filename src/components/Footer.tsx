@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Github, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 import Image from "next/image";
 
 export default function Footer() {
@@ -16,17 +16,14 @@ export default function Footer() {
                 The ultimate collaboration platform for the next generation of creative builders.
               </p>
               <div className="flex items-center gap-4">
-                <Link href="#" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
+                <Link href="https://x.com/creatistwrites" target="_blank" rel="noopener noreferrer" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
                   <Twitter size={20} />
                 </Link>
-                <Link href="#" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
-                  <Instagram size={20} />
-                </Link>
-                <Link href="#" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
-                  <Github size={20} />
-                </Link>
-                <Link href="#" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
+                <Link href="https://linkedin.com/company/creatist" target="_blank" rel="noopener noreferrer" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
                   <Linkedin size={20} />
+                </Link>
+                <Link href="https://youtube.com/@creatistcollab?si=IycV8WQ3uN0JQYe9" target="_blank" rel="noopener noreferrer" className="p-2 glass hover:bg-white/10 rounded-xl text-white transition-all">
+                  <Youtube size={20} />
                 </Link>
               </div>
             </div>
