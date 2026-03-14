@@ -78,6 +78,13 @@ export default function PrivacyPage() {
                 <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline font-medium">creatist.swift@gmail.com</a>
                 <p className="text-sm text-white/40 mt-2">Include your username or registered email address so we can process the request.</p>
               </div>
+
+              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Data Protection</h3>
+              <p>Creatist takes reasonable measures to protect user data and ensure privacy.</p>
+
+              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Contact</h3>
+              <p>For privacy related questions, please contact:</p>
+              <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline">creatist.swift@gmail.com</a>
             </div>
 
             <div className="space-y-4">
