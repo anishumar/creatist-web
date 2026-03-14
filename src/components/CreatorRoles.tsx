@@ -1,61 +1,126 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { 
-  Video, 
-  Camera, 
-  Scissors, 
-  Mic2, 
-  Music, 
-  User, 
-  Palette 
-} from "lucide-react";
+import { motion, useScroll, useTransform, useSpring, useMotionTemplate } from "framer-motion";
+import { useRef } from "react";
 
 const roles = [
-  { name: "Videographer", icon: Video, color: "bg-royal" },
-  { name: "Photographer", icon: Camera, color: "bg-vision-maroon" },
-  { name: "Editor", icon: Scissors, color: "bg-brand-accent" },
-  { name: "Vocalist", icon: Mic2, color: "bg-vision-purple" },
-  { name: "Dancer", icon: User, color: "bg-vision-brown" },
-  { name: "Actor", icon: Palette, color: "bg-vision-deepPurple" },
-  { name: "Composer", icon: Music, color: "bg-vision-darkRed" },
+  "Actor",
+  "Videographer",
+  "Photographer",
+  "Editor",
+  "Vocalist",
+  "Dancer",
+  "Composer"
 ];
 
 export default function CreatorRoles() {
-  return (
-    <section id="roles" className="py-24 bg-transparent relative overflow-hidden text-white">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">
-            Built for Every Creator
-          </h2>
-          <p className="text-white/60 text-lg max-w-2xl mx-auto">
-            Find the perfect collaborators for your next masterpiece, no matter your craft.
-          </p>
-        </div>
+  const containerRef = useRef<HTMLDivElement>(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"]
+  });
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-          {roles.map((role, index) => (
-            <motion.div
-              key={role.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.05 }}
-              viewport={{ once: true }}
-              whileHover={{ 
-                y: -10,
-                scale: 1.05
-              }}
-              className="flex flex-col items-center p-6 rounded-[32px] glass-card border border-white/10 transition-all duration-300 cursor-pointer group"
-            >
-              <div className={`w-14 h-14 ${role.color} rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                <role.icon size={28} />
-              </div>
-              <h3 className="text-white font-medium text-center group-hover:text-brand-accent transition-colors">
-                {role.name}
-              </h3>
-            </motion.div>
-          ))}
+  // Smooth out the scroll progress for a more "liquid" feel
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
+  const step = 1 / (roles.length - 1);
+
+  return (
+    <section 
+      id="roles" 
+      ref={containerRef} 
+      className="relative h-[600vh] bg-transparent text-white overflow-visible"
+    >
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center overflow-hidden pointer-events-none">
+        <div className="relative w-full h-full flex items-center justify-center">
+          
+          {/* Immersive Static Context */}
+          <motion.div 
+            style={{
+              opacity: useTransform(smoothProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0])
+            }}
+            className="absolute top-[20%] text-white/30 font-medium tracking-[0.2em] uppercase text-sm md:text-base z-10"
+          >
+            Built for every
+          </motion.div>
+
+          {/* Dynamic Typography Stream */}
+          <div className="relative w-full h-full flex items-center justify-center perspective-[1000px]">
+            {roles.map((role, i) => {
+              const center = i * step;
+              const start = center - step * 1.5;
+              const end = center + step * 1.5;
+
+              // Opacity: Fade in from distance, peak at center, fade out as it "passes"
+              const opacity = useTransform(
+                smoothProgress,
+                [start, center - step * 0.2, center, center + step * 0.2, end],
+                [0, 0.3, 1, 0.3, 0]
+              );
+
+              // Scale: Start small (far), grow to full size (center), then grow large (passing camera)
+              const scale = useTransform(
+                smoothProgress,
+                [start, center, end],
+                [0.5, 1, 2.5]
+              );
+
+              // Blur: Blurry when far, sharp when center, blurry when passing
+              const blurValue = useTransform(
+                smoothProgress,
+                [start, center, end],
+                [20, 0, 40]
+              );
+              
+              const filter = useMotionTemplate`blur(${blurValue}px)`;
+
+              // Z-Translation: Moving towards the viewer
+              const z = useTransform(
+                smoothProgress,
+                [start, center, end],
+                [-500, 0, 800]
+              );
+
+              // Horizontal Offset: Subtle variation to avoid a rigid vertical line
+              const xOffset = (i % 2 === 0 ? 20 : -20) * (1 - Math.abs(i * step - 0.5) * 2);
+              const x = useTransform(
+                smoothProgress,
+                [start, center, end],
+                [xOffset, 0, xOffset * 2]
+              );
+
+              return (
+                <motion.div
+                  key={role}
+                  className="absolute text-7xl md:text-[12rem] lg:text-[16rem] font-semibold tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-white/20 whitespace-nowrap will-change-transform py-20"
+                  style={{ 
+                    opacity, 
+                    scale,
+                    filter,
+                    z,
+                    x,
+                  }}
+                >
+                  <span className="bg-clip-text bg-gradient-to-br from-brand-accent via-pink-500 to-royal-light inline-block drop-shadow-[0_10px_30px_rgba(250,45,72,0.3)]">
+                    {role}
+                  </span>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Liquid Glass Highlight Overlay */}
+          <motion.div 
+            style={{
+              opacity: useTransform(smoothProgress, [0.05, 0.1, 0.9, 0.95], [0, 0.4, 0.4, 0])
+            }}
+            className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none"
+          />
         </div>
       </div>
     </section>
