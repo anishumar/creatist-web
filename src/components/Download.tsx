@@ -38,9 +38,9 @@ export default function Download() {
             <motion.button 
               whileTap={{ scale: 0.98 }}
               onClick={handleAppStoreClick}
-              className="flex items-center gap-5 px-7 h-24 glass hover:glass-bright text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-2xl group relative overflow-hidden"
+              className="flex items-center gap-5 px-7 h-24 glass-button text-white rounded-[32px] w-full sm:w-[280px] hover:scale-[1.02] group relative overflow-hidden transition-all duration-300"
             >
-              <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+              <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 
                   src="/icons/app-store.svg" 
                   alt="App Store" 
@@ -82,9 +82,9 @@ export default function Download() {
               href="https://testflight.apple.com/join/GAvshvEp"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 px-7 h-24 glass hover:glass-bright hover:border-brand-accent/40 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-2xl group"
+              className="flex items-center gap-5 px-7 h-24 glass-button hover:border-brand-accent/40 text-white rounded-[32px] w-full sm:w-[280px] hover:scale-[1.02] group transition-all duration-300"
             >
-              <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
+              <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 
                   src="/icons/testflight.svg" 
                   alt="TestFlight" 

@@ -57,19 +57,17 @@ export default function Community() {
             <motion.div layout className="flex flex-col items-center justify-center max-w-xl mx-auto w-full min-h-[80px]">
               <AnimatePresence mode="popLayout" initial={false}>
                 {!showInput ? (
-                  <motion.button
-                    key="button"
-                    layout
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setShowInput(true)}
-                    className="px-12 py-5 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-black text-xl transition-all shadow-2xl whitespace-nowrap"
-                  >
-                    Get Early Access
-                  </motion.button>
+                    <motion.button
+                      key="button"
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
+                      onClick={() => setShowInput(true)}
+                      className="px-12 py-5 rounded-[32px] font-black text-xl glass-button-primary whitespace-nowrap"
+                    >
+                      Get Early Access
+                    </motion.button>
                 ) : isSubmitted ? (
                   <motion.div
                     key="success"
@@ -107,7 +105,7 @@ export default function Community() {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="absolute right-2 px-8 py-4 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-bold text-lg transition-all shadow-xl disabled:opacity-50"
+                        className="absolute right-2 px-8 py-4 rounded-[24px] font-bold text-lg glass-button disabled:opacity-50"
                       >
                         {isLoading ? "..." : "Join"}
                       </button>

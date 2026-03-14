@@ -41,12 +41,12 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-10 h-10">
+          <div className="relative w-10 h-10 rounded-[22.5%] overflow-hidden flex-shrink-0">
             <Image 
               src="/icons/Creatist Logo.svg" 
               alt="Creatist Logo" 
               fill 
-              className="object-contain"
+              className="object-cover"
               priority
             />
           </div>
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <button 
             onClick={handleCTA}
-            className="px-8 py-3 rounded-full font-bold bg-white text-dark-darkest hover:bg-brand-accent hover:text-white transition-all shadow-lg hover:shadow-brand-accent/20"
+            className="px-8 py-3 rounded-full font-bold glass-button"
           >
             Get Early Access
           </button>
@@ -109,7 +109,7 @@ export default function Navbar() {
                     setIsOpen(false);
                     handleCTA();
                   }}
-                  className="w-full py-4 rounded-xl font-bold bg-brand-accent text-white shadow-xl shadow-brand-accent/20"
+                  className="w-full py-4 rounded-2xl font-bold glass-button-primary"
                 >
                   Get Early Access
                 </button>

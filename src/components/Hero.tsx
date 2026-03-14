@@ -73,10 +73,8 @@ export default function Hero() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
                   onClick={() => setShowInput(true)}
-                  className="px-10 py-5 bg-brand-accent hover:opacity-90 text-white rounded-3xl font-black text-xl transition-all shadow-2xl shadow-brand-accent/30 flex items-center gap-3 whitespace-nowrap"
+                  className="px-10 py-5 rounded-[32px] font-black text-xl glass-button-primary flex items-center gap-3 whitespace-nowrap"
                 >
                   Get Early Access
                 </motion.button>
@@ -117,7 +115,7 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="absolute right-2 px-8 py-4 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-bold text-lg transition-all shadow-xl disabled:opacity-50"
+                      className="absolute right-2 px-8 py-4 rounded-[24px] font-bold text-lg glass-button disabled:opacity-50"
                     >
                       {isLoading ? "..." : "Join"}
                     </button>
