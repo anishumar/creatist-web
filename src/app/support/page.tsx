@@ -23,8 +23,8 @@ export default function SupportPage() {
               <h2 className="text-2xl font-medium text-white">Contact Support</h2>
               <p>If you have any questions or issues, please contact us:</p>
               <div className="p-6 bg-white/5 border border-white/10 rounded-2xl mt-4">
-                <a href="mailto:support@creatist.app" className="text-brand-accent hover:underline font-medium text-lg flex items-center gap-2">
-                  <span>📧</span> support@creatist.app
+                <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline font-medium text-lg flex items-center gap-2">
+                  creatist.swift@gmail.com
                 </a>
                 <p className="text-sm text-white/40 mt-3 italic">We usually respond within 24–48 hours.</p>
               </div>

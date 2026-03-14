@@ -10,14 +10,6 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
             <div className="col-span-1 md:col-span-1">
               <Link href="/" className="flex items-center gap-3 mb-6">
-                <div className="relative w-10 h-10 rounded-[22.5%] overflow-hidden flex-shrink-0">
-                  <Image 
-                    src="/icons/Creatist Logo.svg" 
-                    alt="Creatist Logo" 
-                    fill 
-                    className="object-cover"
-                  />
-                </div>
                 <span className="text-xl font-medium tracking-tight text-white">Creatist</span>
               </Link>
               <p className="text-white/60 leading-relaxed mb-6">
