@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Creatist Web
 
-## Getting Started
+Welcome to the official web platform for **Creatist** — the ultimate collaboration hub designed for the next generation of creative builders. Experience a premium, macOS-inspired interface built for high-performance collaboration.
 
-First, run the development server:
+## 🚀 Quick Start Guide
+
+Follow these steps to clone, install, and run the Creatist web application on your local machine.
+
+### 1. Clone the Project
+First, clone the entire Creatist ecosystem and navigate to the web directory:
+
+```bash
+git clone https://github.com/anishumar/Creatist.git
+cd Creatist/creatist-web
+```
+
+### 2. Install Web Dependencies
+This project requires [Node.js](https://nodejs.org/) (Version 18+ recommended). Use the following command to install all necessary packages:
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+The web app needs to know where your backend API is located. Create a `.env.local` file in the `creatist-web` root directory:
+
+```bash
+# .env.local
+NEXT_PUBLIC_API_URL=http://localhost:8080
+```
+
+### 4. Launch the Development Server
+Start the local server with hot-reloading enabled:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Once started, navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 🛠 Full-Stack Setup (Backend)
+
+The web app requires the **CreatistBackend** to handle user data and collaborations. If you are running the full stack locally, follow these instructions for the Python backend:
+
+### 1. Initialize Python Environment
+Navigate to the backend directory and create a dedicated virtual environment:
+
+```bash
+cd ../CreatistBackend
+python3 -m venv venv
+
+# Activate on macOS/Linux:
+source venv/bin/activate
+
+# Activate on Windows:
+# venv\Scripts\activate
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Requirements
+Ensure you have the latest dependencies installed within your `venv`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pip install -r requirements.txt
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Backend Configuration
+Copy the provided environment template and fill in your Supabase and SMTP secrets:
 
-## Learn More
+```bash
+cp .env.example .env
+```
 
-To learn more about Next.js, take a look at the following resources:
+### 4. Run the Backend
+```bash
+python main.py
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏗 Build & Production
 
-## Deploy on Vercel
+To create an optimized production build of the web app:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+##  Tech Stack
+- **Framework**: [Next.js 14+](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animation**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
