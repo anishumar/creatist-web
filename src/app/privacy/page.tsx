@@ -15,7 +15,7 @@ export default function PrivacyPage() {
           <section className="space-y-12 text-white/80 leading-relaxed">
             <div>
               <p className="text-lg">
-                Creatist ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the Creatist mobile application and website.
+                Creatist ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the Creatist mobile application.
               </p>
             </div>
 
@@ -64,33 +64,9 @@ export default function PrivacyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Privacy Choices</h2>
-              <p>At Creatist, we respect your privacy and give users control over their personal information.</p>
-              
-              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Data Access</h3>
-              <p>Users can access and update their account information directly within the app.</p>
-
-              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Account Deletion</h3>
-              <p>
-                If you would like to delete your Creatist account and associated data, you may request deletion by contacting us. Please send an email to:
-              </p>
-              <div className="p-4 bg-white/5 border border-white/10 rounded-xl mt-4">
-                <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline font-medium">creatist.swift@gmail.com</a>
-                <p className="text-sm text-white/40 mt-2">Include your username or registered email address so we can process the request.</p>
-              </div>
-
-              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Data Protection</h3>
-              <p>Creatist takes reasonable measures to protect user data and ensure privacy.</p>
-
-              <h3 className="text-xl font-semibold text-white mt-6 mb-2">Contact</h3>
-              <p>For privacy related questions, please contact:</p>
-              <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline">creatist.swift@gmail.com</a>
-            </div>
-
-            <div className="space-y-4">
               <h2 className="text-2xl font-bold text-white">Contact Us</h2>
               <p>If you have questions about this Privacy Policy, please contact us:</p>
-              <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline">creatist.swift@gmail.com</a>
+              <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline font-medium">creatist.swift@gmail.com</a>
             </div>
           </section>
 

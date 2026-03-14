@@ -63,6 +63,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Support</Link></li>
               <li><Link href="/privacy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/privacy-choices" className="text-white/60 hover:text-white transition-colors">Privacy Choices</Link></li>
               <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
@@ -75,6 +76,7 @@ export default function Footer() {
           <div className="flex items-center gap-8">
             <Link href="/privacy" className="text-white/40 hover:text-white text-sm transition-colors">Privacy</Link>
             <Link href="/support" className="text-white/40 hover:text-white text-sm transition-colors">Support</Link>
+            <Link href="/privacy-choices" className="text-white/40 hover:text-white text-sm transition-colors">Privacy Choices</Link>
           </div>
         </div>
       </div>
