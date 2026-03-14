@@ -33,8 +33,9 @@ export default function Screenshots() {
       {showcaseItems.map((item, index) => (
         <div key={index} className="py-24 relative overflow-hidden">
           <div className="container mx-auto px-6">
-            <div className={`flex flex-col ${item.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}>
-              <div className="w-full lg:w-[45%] text-center lg:text-left">
+            <div className={`flex flex-col items-center gap-12 lg:gap-24`}>
+              {/* Text segment hidden */}
+              <div className="hidden w-full lg:w-[45%] text-center lg:text-left">
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -58,21 +59,21 @@ export default function Screenshots() {
                 </motion.div>
               </div>
               
-              <div className="w-full lg:w-[55%] relative">
+              <div className="w-full relative">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9, y: 40 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
                   viewport={{ once: true }}
-                  className="relative group"
+                  className="relative group w-full"
                 >
-                  <div className="relative mx-auto glass shadow-[0_50px_100px_rgba(0,0,0,0.6)] rounded-[40px] p-2 lg:p-4 rotate-1 group-hover:rotate-0 transition-transform duration-700">
+                  <div className="relative mx-auto w-full glass shadow-[0_50px_100px_rgba(0,0,0,0.6)] rounded-[40px] p-2 lg:p-4 rotate-1 group-hover:rotate-0 transition-transform duration-700">
                     <Image 
                       src={item.image} 
                       alt={item.title}
                       width={1000}
                       height={2000}
-                      className="w-full h-auto object-contain rounded-[32px]"
+                      className="w-full h-auto object-cover rounded-[32px]"
                       priority={index === 0}
                     />
                   </div>

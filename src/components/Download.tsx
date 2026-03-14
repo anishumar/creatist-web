@@ -25,12 +25,12 @@ export default function Download() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-8">
-            Be the First to <br />
-            Experience Creatist
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tight text-white mb-6 leading-tight">
+            The next era <br />
+            starts here.
           </h2>
-          <p className="text-white/80 text-xl mb-12">
-            We're currently in private beta. Join the waitlist to receive exclusive early access and help shape the future of creative collaboration.
+          <p className="text-white/60 text-xl md:text-2xl mb-12 font-medium">
+            Private Beta is live. Secure your spot.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">

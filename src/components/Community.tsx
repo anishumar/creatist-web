@@ -57,15 +57,15 @@ export default function Community() {
           style={{ y, opacity }}
           className="flex flex-col items-center text-center"
         >
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tighter text-white mb-8 max-w-4xl leading-tight">
-            Join the next generation of <br />
+          <h2 className="text-5xl md:text-7xl font-semibold tracking-tighter text-white mb-6 max-w-4xl leading-[1.1]">
+            Create together. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white/80 to-white/40 animate-shimmer bg-[length:200%_100%]">
-              creators collaborating worldwide.
+              Build something legendary.
             </span>
           </h2>
 
-          <p className="text-white/60 text-xl md:text-2xl mb-16 max-w-3xl mx-auto leading-relaxed font-medium">
-            Don't create in isolation. Connect with the best talent in the industry and build something legendary.
+          <p className="text-white/60 text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-medium">
+            Stop creating in isolation. Find your missing piece.
           </p>
 
           <motion.div layout className="flex flex-col items-center justify-center max-w-xl mx-auto w-full min-h-[100px]">

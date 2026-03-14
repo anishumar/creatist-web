@@ -6,25 +6,25 @@ import Image from "next/image";
 
 const stories = [
   {
-    title: "Discover Your Next Collaborator",
-    description: "Search and discover talented creators by role and build your dream collaboration team. Connect with designers, developers, and artists worldwide.",
+    title: "Discover Collaborator",
+    description: "Search and discover talented creators by role and build your dream collaboration team.",
     images: ["/images/stories/discover-main-page.png", "/images/stories/discover-inside.png"],
     color: "from-brand-accent to-rose-600",
   },
   {
-    title: "Project Vision Boards",
-    description: "Organize ideas, manage creative projects, and collaborate with your team in one place. Build beautiful vision boards that align your vision.",
+    title: "Create VisionBoards",
+    description: "Organize ideas, manage creative projects, and collaborate with your team in one place.",
     images: [
       "/images/stories/visionboard-main.png", 
       "/images/stories/visionboard-main3.png"
     ],
-    color: "from-royal to-blue-600",
+    color: "from-brand-accent to-rose-600",
   },
   {
-    title: "Dynamic Creator Feed",
-    description: "Stay updated with what your network is building. Share your latest work and get inspired by the global creator community.",
+    title: "Showcase Works",
+    description: "Share your latest work and get inspired by the global creator community.",
     images: ["/images/stories/feed-new.png"],
-    color: "from-vision-maroon to-vision-purple",
+    color: "from-brand-accent to-rose-600",
   },
 ];
 
@@ -41,7 +41,7 @@ export default function StorySection() {
   const phoneScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
 
   return (
-    <section ref={containerRef} className="relative h-[500vh] bg-transparent">
+    <section ref={containerRef} className="relative h-[800vh] bg-transparent">
       <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none">
@@ -77,43 +77,50 @@ export default function StorySection() {
           ))}
         </div>
 
-        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 h-full">
-          {/* Text Content */}
-          <div className="relative h-[60vh] lg:h-[80vh]">
+        <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center relative z-10 h-full w-full">
+          {/* Text Content - Left Side */}
+          <div className="relative h-full z-20 pointer-events-none">
             {stories.map((story, index) => {
               const start = index / stories.length;
               const end = (index + 1) / stories.length;
               
               const opacity = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]);
-              const x = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [-50, 0, 0, 50]);
+              // Adjust Y lightly
+              const y = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [20, 0, 0, -20]);
               const blur = useTransform(scrollYProgress, [start, start + 0.05, end - 0.05, end], ["blur(10px)", "blur(0px)", "blur(0px)", "blur(10px)"]);
 
               return (
                 <motion.div
                   key={index}
-                  style={{ opacity, x, filter: blur }}
-                  className="absolute inset-0 flex flex-col justify-center"
+                  style={{ opacity, y, filter: blur }}
+                  className="absolute inset-0 flex flex-col items-start justify-center text-left lg:pr-10"
                 >
                   <motion.span 
                      initial={{ opacity: 0 }}
                      whileInView={{ opacity: 1 }}
-                     className="text-brand-accent font-medium tracking-widest uppercase mb-4 block"
+                     className="text-brand-accent font-medium tracking-widest uppercase mb-4 block drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                   >
                     Story 0{index + 1}
                   </motion.span>
-                  <h2 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1] tracking-tight">
+                  <h2 className="text-4xl md:text-5xl lg:text-7xl font-semibold tracking-tight text-white mb-4 leading-[1.1] drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]">
                     {story.title.split(' ').map((word, i) => (
-                      <span key={i} className={i % 2 === 1 ? `text-transparent bg-clip-text bg-gradient-to-r ${story.color}` : ""}>
+                      <span 
+                        key={i} 
+                        className={`
+                          ${i % 2 === 1 ? `text-transparent bg-clip-text bg-gradient-to-r ${story.color}` : ""} 
+                          ${story.title === "Showcase Works" && i === 1 ? "block" : ""}
+                        `}
+                      >
                         {word}{" "}
                       </span>
                     ))}
                   </h2>
-                  <p className="text-xl md:text-2xl text-white/50 max-w-xl leading-relaxed font-medium">
+                  <p className="text-lg md:text-xl text-white max-w-xl leading-relaxed font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
                     {story.description}
                   </p>
                   
-                  <div className="mt-12 flex items-center gap-6">
-                    <div className="h-[2px] w-32 bg-white/10 relative overflow-hidden">
+                  <div className="mt-8 flex items-center gap-6">
+                    <div className="h-[2px] w-32 bg-white/20 relative overflow-hidden rounded-full drop-shadow-md">
                       <motion.div 
                         style={{ 
                           scaleX: useTransform(scrollYProgress, [start, end], [0, 1]),
@@ -122,16 +129,16 @@ export default function StorySection() {
                         className={`absolute inset-0 bg-gradient-to-r ${story.color}`} 
                       />
                     </div>
-                    <span className="text-white/20 font-mono text-sm">0{index + 1} / 0{stories.length}</span>
+                    <span className="text-white font-mono text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">0{index + 1} / 0{stories.length}</span>
                   </div>
                 </motion.div>
               );
             })}
           </div>
 
-          {/* Floating Device Mockups */}
-          <div className="flex justify-center items-center h-full">
-            <div className="relative w-full max-w-[650px] md:max-w-[850px] lg:max-w-[950px] aspect-[4/3]">
+          {/* Floating Device Mockups - Right Side */}
+          <div className="relative flex justify-center items-center h-full w-full pointer-events-none mt-10 lg:mt-0 lg:-mr-20">
+            <div className="relative w-full lg:w-[130%] max-w-[1200px] h-[70vh] lg:h-[90vh]">
               {stories.map((story, index) => {
                 const start = index / stories.length;
                 const end = (index + 1) / stories.length;
@@ -140,12 +147,16 @@ export default function StorySection() {
                 const lastImgStart = end - step;
                 
                 // Entrance and Exit animations for the device
-                // Sharper transitions between stories
-                const opacity = useTransform(scrollYProgress, [start - 0.01, start, end, end + 0.01], [0, 1, 1, 0]);
-                const baseScale = useTransform(scrollYProgress, [start - 0.1, start, end, end + 0.1], [1.2, 1.6, 1.6, 1.2]);
+                // Fades out completely before the next one starts fading in.
+                const opacity = useTransform(scrollYProgress, [start, start + 0.08, end - 0.08, end], [0, 1, 1, 0]);
+                
+                // One device is small when entering, giving perspective depth, scaling up when it is at the center
+                // It stays full size when exiting to the right. Last story appears immediately at full size.
+                const scaleStart = story.title === "Showcase Works" ? 1.8 : 0.6;
+                const baseScale = useTransform(scrollYProgress, [start, start + 0.15, end - 0.15, end], [scaleStart, 1.8, 1.8, 1.8]);
                 
                 // Zoom in during the last image of each story
-                const zoomScale = useTransform(scrollYProgress, [lastImgStart, end], [1, 1.3]);
+                const zoomScale = useTransform(scrollYProgress, [lastImgStart, end], [1, 1.15]);
                 
                 // Combine scales
                 const scale = useTransform(
@@ -153,9 +164,18 @@ export default function StorySection() {
                   ([s1, s2]: any[]) => s1 * s2
                 );
 
-                const rotateY = useTransform(scrollYProgress, [start, end], [-5, 5]);
-                const z = useTransform(scrollYProgress, [start, end], [0, 30]);
-                const y = useTransform(scrollYProgress, [start - 0.1, start, end, end + 0.1], [50, 0, 0, -50]);
+                const rotateY = useTransform(scrollYProgress, [start, start + 0.15, end - 0.15, end], [-15, -5, 5, 15]);
+                
+                // Last story doesn't come from behind (Z axis)
+                const zStart = story.title === "Showcase Works" ? 50 : -100;
+                const z = useTransform(scrollYProgress, [start, start + 0.15, end - 0.15, end], [zStart, 50, 50, 50]);
+                
+                // Enters from below, but doesn't exit upward anymore. Last story doesn't enter from below.
+                const yStart = story.title === "Showcase Works" ? 0 : 600;
+                const y = useTransform(scrollYProgress, [start, start + 0.15, end - 0.15, end], [yStart, 0, 0, 0]);
+                
+                // Exits to the right
+                const x = useTransform(scrollYProgress, [start, start + 0.15, end - 0.15, end], [0, 0, 0, 800]);
 
                 return (
                   <motion.div
@@ -166,29 +186,26 @@ export default function StorySection() {
                       rotateY,
                       z,
                       y,
-                      perspective: 1000
+                      x,
+                      perspective: 1200
                     }}
-                    className="absolute inset-0 z-10"
+                    className="absolute inset-0 z-10 w-full"
                   >
-                    {/* Shadow for the floating device removed to prevent rectangular box effect */}
-                    
                     <div className="relative w-full h-full drop-shadow-[0_40px_80px_rgba(0,0,0,0.6)]">
                       {story.images.map((img, imgIndex) => {
                         const imgStart = start + imgIndex * step;
                         const imgEnd = start + (imgIndex + 1) * step;
                         
-                        // Cross-fade logic:
-                        // Image N stays visible until Image N+1 starts fading in.
-                        // We use a centered cross-fade at each step boundary.
-                        const crossFadeRange = step * 0.4; // 40% of the step is for cross-fading
+                        // Sequential logic: one disappears completely before the next comes up.
+                        const fadeRange = step * 0.1;
                         
                         const imgOpacity = useTransform(
                           scrollYProgress,
                           [
-                            imgStart - (imgIndex === 0 ? 0.05 : crossFadeRange/2),
-                            imgStart + (imgIndex === 0 ? 0 : crossFadeRange/2),
-                            imgEnd - (imgIndex === count - 1 ? 0 : crossFadeRange/2),
-                            imgEnd + (imgIndex === count - 1 ? 0.05 : crossFadeRange/2)
+                            imgStart,
+                            imgStart + fadeRange,
+                            imgEnd - fadeRange,
+                            imgEnd
                           ],
                           [0, 1, 1, 0]
                         );
@@ -197,20 +214,18 @@ export default function StorySection() {
                           <motion.div
                             key={imgIndex}
                             style={{ opacity: imgOpacity }}
-                            className="absolute inset-0"
+                            className="absolute inset-0 w-full"
                           >
                             <Image 
                               src={img} 
                               alt={story.title}
                               fill
-                              className="object-contain"
+                              className="object-contain w-full"
                               priority={index === 0 && imgIndex === 0}
                             />
                           </motion.div>
                         );
                       })}
-                      
-                      {/* Glass Reflection Overlay removed */}
                     </div>
                   </motion.div>
                 );
