@@ -4,11 +4,11 @@ import Footer from "@/components/Footer";
 
 export default function PrivacyChoicesPage() {
   return (
-    <main className="bg-dark-darkest min-h-screen text-white selection:bg-brand-accent/30">
+    <main className="bg-transparent min-h-screen text-white selection:bg-brand-accent/30">
       <Navbar />
       
-      <div className="pt-32 pb-20 px-6">
-        <div className="max-w-3xl mx-auto">
+      <div className="pt-40 pb-20 px-6">
+        <div className="max-w-4xl mx-auto glass p-8 md:p-16 rounded-[48px] border border-white/10 shadow-2xl">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Privacy Choices</h1>
           
           <section className="space-y-12 text-white/80 leading-relaxed">

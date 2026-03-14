@@ -23,7 +23,7 @@ const roles = [
 
 export default function CreatorRoles() {
   return (
-    <section id="roles" className="py-24 bg-dark-darker">
+    <section id="roles" className="py-24 bg-transparent relative overflow-hidden text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
@@ -38,15 +38,15 @@ export default function CreatorRoles() {
           {roles.map((role, index) => (
             <motion.div
               key={role.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
               whileHover={{ 
                 y: -10,
-                backgroundColor: "rgba(255, 255, 255, 0.05)"
+                scale: 1.05
               }}
-              className="flex flex-col items-center p-6 rounded-3xl border border-white/5 transition-all cursor-pointer group bg-dark-accent/50"
+              className="flex flex-col items-center p-6 rounded-[32px] glass-card border border-white/10 transition-all duration-300 cursor-pointer group"
             >
               <div className={`w-14 h-14 ${role.color} rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
                 <role.icon size={28} />

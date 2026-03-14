@@ -39,7 +39,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-dark-darkest">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-transparent">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-brand-accent/20 rounded-full blur-[120px]" />
@@ -95,30 +95,33 @@ export default function Hero() {
                 <motion.form
                   key="form"
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
                   onSubmit={handleSubmit}
-                  className="relative group w-full"
+                  className="relative group w-full glass shadow-2xl rounded-[32px] p-2"
                 >
-                  <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-white/30 group-focus-within:text-brand-accent transition-colors">
-                    <Mail size={24} />
+                  <div className="flex items-center">
+                    <div className="pl-6 text-white/40 group-focus-within:text-brand-accent transition-colors">
+                      <Mail size={24} />
+                    </div>
+                    <input
+                      autoFocus
+                      type="email"
+                      placeholder="Enter your email address"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full pl-4 pr-32 py-4 bg-transparent text-xl text-white outline-none transition-all placeholder:text-white/20"
+                    />
+                    <button
+                      type="submit"
+                      disabled={isLoading}
+                      className="absolute right-2 px-8 py-4 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-bold text-lg transition-all shadow-xl disabled:opacity-50"
+                    >
+                      {isLoading ? "..." : "Join"}
+                    </button>
                   </div>
-                  <input
-                    autoFocus
-                    type="email"
-                    placeholder="Your email address"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-16 pr-32 py-5 bg-white/10 border-2 border-white/10 focus:border-brand-accent/30 rounded-[2.5rem] text-xl text-white outline-none transition-all placeholder:text-white/20"
-                  />
-                  <button
-                    type="submit"
-                    className="absolute right-2 top-2 bottom-2 px-6 bg-brand-accent hover:opacity-90 text-white rounded-[2rem] font-bold text-lg transition-all shadow-lg"
-                  >
-                    Join
-                  </button>
                 </motion.form>
               )}
             </AnimatePresence>

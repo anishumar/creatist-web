@@ -41,7 +41,7 @@ export default function StorySection() {
   const phoneScale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.9, 1, 1, 0.9]);
 
   return (
-    <section ref={containerRef} className="relative h-[500vh] bg-dark-darkest">
+    <section ref={containerRef} className="relative h-[500vh] bg-transparent">
       <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 pointer-events-none">

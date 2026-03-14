@@ -29,55 +29,56 @@ const showcaseItems = [
 
 export default function Screenshots() {
   return (
-    <section id="product" className="bg-dark-darkest">
+    <section id="product" className="bg-transparent">
       {showcaseItems.map((item, index) => (
-        <div key={index} className={`py-24 ${item.bg} overflow-hidden`}>
+        <div key={index} className="py-24 relative overflow-hidden">
           <div className="container mx-auto px-6">
             <div className={`flex flex-col ${item.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-12 lg:gap-24`}>
-              <div className="w-full lg:w-[40%] text-center lg:text-left">
+              <div className="w-full lg:w-[45%] text-center lg:text-left">
                 <motion.div
-                  initial={{ opacity: 0, x: item.reverse ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+                  <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
                     {item.title}
                   </h2>
-                  <p className="text-xl text-white/60 mb-8 max-w-xl mx-auto lg:mx-0">
+                  <p className="text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
                     {item.description}
                   </p>
                   <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-                    <div className="px-6 py-3 bg-white/5 border border-white/10 rounded-xl text-white font-medium">
+                    <div className="px-6 py-3 glass border border-white/10 rounded-2xl text-white/80 font-medium">
                       Built for Creators
                     </div>
-                    <div className="px-6 py-3 bg-brand-accent/10 border border-brand-accent/20 rounded-xl text-brand-accent font-medium">
+                    <div className="px-6 py-3 glass-bright border border-brand-accent/20 rounded-2xl text-brand-accent font-bold">
                       Seamless Flow
                     </div>
                   </div>
                 </motion.div>
               </div>
               
-              <div className="w-full lg:w-[60%] relative">
+              <div className="w-full lg:w-[55%] relative">
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }}
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
                   viewport={{ once: true }}
-                  className="relative z-10"
+                  className="relative group"
                 >
-                  <div className="relative mx-auto drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]">
+                  <div className="relative mx-auto glass shadow-[0_50px_100px_rgba(0,0,0,0.6)] rounded-[40px] p-2 lg:p-4 rotate-1 group-hover:rotate-0 transition-transform duration-700">
                     <Image 
                       src={item.image} 
                       alt={item.title}
                       width={1000}
                       height={2000}
-                      className="w-full h-auto object-contain"
+                      className="w-full h-auto object-contain rounded-[32px]"
+                      priority={index === 0}
                     />
                   </div>
                   
                   {/* Decorative Glow */}
-                  <div className={`absolute -inset-4 ${index % 2 === 0 ? 'bg-brand-accent/20' : 'bg-brand/20'} blur-3xl -z-10`} />
+                  <div className={`absolute -inset-10 ${index % 2 === 0 ? 'bg-brand-accent/10' : 'bg-brand/10'} blur-[100px] -z-10 group-hover:opacity-40 transition-opacity duration-700`} />
                 </motion.div>
               </div>
             </div>

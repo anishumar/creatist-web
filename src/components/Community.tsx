@@ -38,9 +38,9 @@ export default function Community() {
   };
 
   return (
-    <section id="community" className="py-32 bg-dark-darkest relative overflow-hidden">
+    <section id="community" className="py-32 bg-transparent relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-gradient-to-br from-royal to-dark-accent rounded-[40px] p-12 md:p-24 border border-white/5 text-center">
+        <div className="glass-bright rounded-[56px] p-12 md:p-24 border border-white/10 text-center shadow-[0_40px_100px_rgba(0,0,0,0.4)]">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -50,7 +50,7 @@ export default function Community() {
               Join the next generation of <br className="hidden md:block" />
               creators collaborating worldwide.
             </h2>
-            <p className="text-white/60 text-xl mb-12 max-w-2xl mx-auto">
+            <p className="text-white/70 text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
               Don't create in isolation. Connect with the best talent in the industry and build something legendary.
             </p>
 
@@ -66,7 +66,7 @@ export default function Community() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => setShowInput(true)}
-                    className="px-12 py-5 bg-brand-accent text-white hover:opacity-90 rounded-2xl font-black text-xl transition-all shadow-2xl shadow-brand-accent/20 whitespace-nowrap"
+                    className="px-12 py-5 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-black text-xl transition-all shadow-2xl whitespace-nowrap"
                   >
                     Get Early Access
                   </motion.button>
@@ -76,7 +76,7 @@ export default function Community() {
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex items-center gap-4 px-8 py-5 bg-white/5 border border-white/10 rounded-3xl text-white"
+                    className="flex items-center gap-4 px-8 py-5 glass border border-white/10 rounded-3xl text-white"
                   >
                     <CheckCircle2 className="text-brand-accent" size={28} />
                     <span className="text-xl font-bold whitespace-nowrap">You're on the list!</span>
@@ -85,30 +85,33 @@ export default function Community() {
                   <motion.form
                     key="form"
                     layout
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
                     onSubmit={handleSubmit}
-                    className="relative group w-full"
+                    className="relative group w-full glass border border-white/10 shadow-2xl rounded-[32px] p-2"
                   >
-                    <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-white/30 group-focus-within:text-brand-accent transition-colors">
-                      <Mail size={24} />
+                    <div className="flex items-center">
+                      <div className="pl-6 text-white/40 group-focus-within:text-brand-accent transition-colors">
+                        <Mail size={24} />
+                      </div>
+                      <input
+                        autoFocus
+                        type="email"
+                        placeholder="Your email address"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full pl-4 pr-32 py-4 bg-transparent text-xl text-white outline-none transition-all placeholder:text-white/20"
+                      />
+                      <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="absolute right-2 px-8 py-4 bg-white text-black hover:bg-brand-accent hover:text-white rounded-[24px] font-bold text-lg transition-all shadow-xl disabled:opacity-50"
+                      >
+                        {isLoading ? "..." : "Join"}
+                      </button>
                     </div>
-                    <input
-                      autoFocus
-                      type="email"
-                      placeholder="Your email address"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-16 pr-32 py-5 bg-dark-darkest/50 border-2 border-white/10 focus:border-brand-accent/50 rounded-2xl text-xl text-white outline-none transition-all"
-                    />
-                    <button
-                      type="submit"
-                      className="absolute right-2 top-2 bottom-2 px-6 bg-brand-accent hover:opacity-90 text-white rounded-xl font-bold text-lg transition-all"
-                    >
-                      Join
-                    </button>
                   </motion.form>
                 )}
               </AnimatePresence>

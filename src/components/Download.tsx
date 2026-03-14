@@ -13,7 +13,7 @@ export default function Download() {
   };
 
   return (
-    <section id="download" className="py-32 bg-dark-darkest relative overflow-hidden">
+    <section id="download" className="py-32 bg-transparent relative overflow-hidden">
       {/* Decorative Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute top-[-20%] right-[-10%] w-96 h-96 bg-royal/10 rounded-full blur-[100px] pointer-events-none" />
@@ -38,7 +38,7 @@ export default function Download() {
             <motion.button 
               whileTap={{ scale: 0.98 }}
               onClick={handleAppStoreClick}
-              className="flex items-center gap-5 px-7 h-24 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-xl group relative overflow-hidden"
+              className="flex items-center gap-5 px-7 h-24 glass hover:glass-bright text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-2xl group relative overflow-hidden"
             >
               <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 
@@ -82,7 +82,7 @@ export default function Download() {
               href="https://testflight.apple.com/join/GAvshvEp"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-5 px-7 h-24 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 hover:border-brand-accent/40 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-xl hover:shadow-brand-accent/5 group"
+              className="flex items-center gap-5 px-7 h-24 glass hover:glass-bright hover:border-brand-accent/40 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-2xl group"
             >
               <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 

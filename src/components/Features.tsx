@@ -44,9 +44,9 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-24 bg-dark-darkest relative overflow-hidden">
+    <section id="features" className="py-24 bg-transparent relative overflow-hidden">
         {/* Background blobs */}
-        <div className="absolute top-1/2 left-[-10%] w-[600px] h-[600px] bg-brand/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 left-[-10%] w-[600px] h-[600px] bg-brand/10 rounded-full blur-[100px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-16">
@@ -54,18 +54,19 @@ export default function Features() {
             Powerful Features for <br />
             Modern Creators
           </h2>
-          <div className="w-20 h-1.5 bg-brand-accent rounded-full mb-6" />
+          <div className="w-20 h-1.5 bg-brand-accent rounded-full mb-6 shadow-lg shadow-brand-accent/30" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-3xl bg-dark-darker border border-white/5 hover:border-brand-accent/30 transition-all group"
+              whileHover={{ y: -8 }}
+              className="p-8 rounded-[40px] glass-card border border-white/10 hover:border-white/20 transition-all duration-300 group"
             >
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-6 shadow-xl`}>
                 <feature.icon size={24} />
