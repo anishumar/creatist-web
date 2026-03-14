@@ -7,17 +7,29 @@
   --foreground: #171717;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+[data-theme='dark'], :root {
+  --background: #313338;
+  --foreground: #f2f3f5;
+  --card: #2b2d31;
+  --card-foreground: #ffffff;
+  --border: #1e1f22;
+  --input: #1e1f22;
+  --ring: #5865f2;
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer base {
+  * {
+    @apply border-dark-darkest;
+  }
 }
 
 @layer utilities {

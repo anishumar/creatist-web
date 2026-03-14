@@ -1,0 +1,63 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { 
+  Video, 
+  Camera, 
+  Scissors, 
+  Mic2, 
+  Music, 
+  User, 
+  Palette 
+} from "lucide-react";
+
+const roles = [
+  { name: "Videographer", icon: Video, color: "bg-royal" },
+  { name: "Photographer", icon: Camera, color: "bg-vision-maroon" },
+  { name: "Editor", icon: Scissors, color: "bg-brand-accent" },
+  { name: "Vocalist", icon: Mic2, color: "bg-vision-purple" },
+  { name: "Dancer", icon: User, color: "bg-vision-brown" },
+  { name: "Actor", icon: Palette, color: "bg-vision-deepPurple" },
+  { name: "Composer", icon: Music, color: "bg-vision-darkRed" },
+];
+
+export default function CreatorRoles() {
+  return (
+    <section id="roles" className="py-24 bg-dark-darker">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            Built for Every Creator
+          </h2>
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
+            Find the perfect collaborators for your next masterpiece, no matter your craft.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+          {roles.map((role, index) => (
+            <motion.div
+              key={role.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ 
+                y: -10,
+                backgroundColor: "rgba(255, 255, 255, 0.05)"
+              }}
+              className="flex flex-col items-center p-6 rounded-3xl border border-white/5 transition-all cursor-pointer group bg-dark-accent/50"
+            >
+              <div className={`w-14 h-14 ${role.color} rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
+                <role.icon size={28} />
+              </div>
+              <h3 className="text-white font-bold text-center group-hover:text-brand-accent transition-colors">
+                {role.name}
+              </h3>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
