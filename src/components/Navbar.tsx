@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 const navLinks = [
-  { name: "Community", href: "#community" },
+  { name: "Community", href: "/#community" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,6 +24,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleCTA = () => {
+    if (pathname !== "/") {
+      router.push("/");
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   return (
     <nav
@@ -57,7 +68,7 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            onClick={handleCTA}
             className="px-8 py-3 rounded-full font-bold bg-white text-dark-darkest hover:bg-brand-accent hover:text-white transition-all shadow-lg hover:shadow-brand-accent/20"
           >
             Get Early Access
@@ -96,7 +107,7 @@ export default function Navbar() {
                 <button 
                   onClick={() => {
                     setIsOpen(false);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    handleCTA();
                   }}
                   className="w-full py-4 rounded-xl font-bold bg-brand-accent text-white shadow-xl shadow-brand-accent/20"
                 >

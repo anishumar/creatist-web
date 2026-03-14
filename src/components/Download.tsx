@@ -36,11 +36,11 @@ export default function Download() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             {/* App Store (Interactive Coming Soon) */}
             <motion.button 
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.98 }}
               onClick={handleAppStoreClick}
-              className="flex items-center gap-4 px-8 py-4 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 text-white rounded-2xl transition-all w-full sm:w-[260px] shadow-xl group relative overflow-hidden"
+              className="flex items-center gap-5 px-7 h-24 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-xl group relative overflow-hidden"
             >
-              <div className="relative w-8 h-8 group-hover:scale-110 transition-transform duration-500">
+              <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 
                   src="/icons/app-store.svg" 
                   alt="App Store" 
@@ -48,30 +48,32 @@ export default function Download() {
                   className="object-contain"
                 />
               </div>
-              <div className="text-left">
-                <AnimatePresence mode="wait">
-                  {showComingSoon ? (
-                    <motion.div
-                      key="active"
-                      initial={{ y: 5, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -5, opacity: 0 }}
-                      className="text-[10px] font-black uppercase tracking-[0.15em] text-brand-accent"
-                    >
-                      🚀 Soon!
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="idle"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 0.4 }}
-                      className="text-[10px] font-bold uppercase tracking-[0.15em]"
-                    >
-                      Coming Soon
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-                <div className="text-xl font-bold tracking-tight">App Store</div>
+              <div className="flex flex-col items-start leading-tight">
+                <div className="h-4 flex items-center">
+                  <AnimatePresence mode="wait">
+                    {showComingSoon ? (
+                      <motion.div
+                        key="active"
+                        initial={{ y: 2, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        exit={{ y: -2, opacity: 0 }}
+                        className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent"
+                      >
+                        Soon
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="idle"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                        className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                      >
+                        Coming Soon
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+                <div className="text-2xl font-bold tracking-tight">App Store</div>
               </div>
             </motion.button>
 
@@ -80,9 +82,9 @@ export default function Download() {
               href="https://testflight.apple.com/join/GAvshvEp"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-4 px-8 py-4 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 hover:border-brand-accent/40 text-white rounded-2xl transition-all w-full sm:w-[260px] shadow-xl hover:shadow-brand-accent/5 group"
+              className="flex items-center gap-5 px-7 h-24 bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-md border border-white/10 hover:border-brand-accent/40 text-white rounded-[24px] transition-all w-full sm:w-[280px] shadow-xl hover:shadow-brand-accent/5 group"
             >
-              <div className="relative w-8 h-8 group-hover:scale-110 transition-transform duration-500">
+              <div className="relative w-11 h-11 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
                 <Image 
                   src="/icons/testflight.svg" 
                   alt="TestFlight" 
@@ -90,9 +92,11 @@ export default function Download() {
                   className="object-contain"
                 />
               </div>
-              <div className="text-left">
-                <div className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-0.5">Join Beta</div>
-                <div className="text-xl font-bold tracking-tight">TestFlight</div>
+              <div className="flex flex-col items-start leading-tight">
+                <div className="h-4 flex items-center">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Join Beta</div>
+                </div>
+                <div className="text-2xl font-bold tracking-tight">TestFlight</div>
               </div>
             </a>
           </div>

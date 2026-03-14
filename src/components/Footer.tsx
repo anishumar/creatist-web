@@ -61,10 +61,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-bold mb-6">Company</h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-white/60 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
-              <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Support</Link></li>
+              <li><Link href="/privacy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -74,9 +73,8 @@ export default function Footer() {
             © {new Date().getFullYear()} Creatist. All rights reserved.
           </p>
           <div className="flex items-center gap-8">
-            <Link href="#" className="text-white/40 hover:text-white text-sm transition-colors">Privacy</Link>
-            <Link href="#" className="text-white/40 hover:text-white text-sm transition-colors">Terms</Link>
-            <Link href="#" className="text-white/40 hover:text-white text-sm transition-colors">Cookies</Link>
+            <Link href="/privacy" className="text-white/40 hover:text-white text-sm transition-colors">Privacy</Link>
+            <Link href="/support" className="text-white/40 hover:text-white text-sm transition-colors">Support</Link>
           </div>
         </div>
       </div>
