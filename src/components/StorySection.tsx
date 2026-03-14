@@ -97,11 +97,11 @@ export default function StorySection() {
                   <motion.span 
                      initial={{ opacity: 0 }}
                      whileInView={{ opacity: 1 }}
-                     className="text-brand-accent font-bold tracking-widest uppercase mb-4 block"
+                     className="text-brand-accent font-medium tracking-widest uppercase mb-4 block"
                   >
                     Story 0{index + 1}
                   </motion.span>
-                  <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tight">
+                  <h2 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1] tracking-tight">
                     {story.title.split(' ').map((word, i) => (
                       <span key={i} className={i % 2 === 1 ? `text-transparent bg-clip-text bg-gradient-to-r ${story.color}` : ""}>
                         {word}{" "}

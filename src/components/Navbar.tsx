@@ -50,7 +50,7 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="text-2xl font-bold tracking-tight text-white">Creatist</span>
+          <span className="text-2xl font-medium tracking-tight text-white">Creatist</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -69,7 +69,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <button 
             onClick={handleCTA}
-            className="px-8 py-3 rounded-full font-bold glass-button"
+            className="px-8 py-3 rounded-full font-medium glass-button"
           >
             Get Early Access
           </button>
@@ -109,7 +109,7 @@ export default function Navbar() {
                     setIsOpen(false);
                     handleCTA();
                   }}
-                  className="w-full py-4 rounded-2xl font-bold glass-button-primary"
+                  className="w-full py-4 rounded-2xl font-medium glass-button-primary"
                 >
                   Get Early Access
                 </button>

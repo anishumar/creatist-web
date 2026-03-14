@@ -18,7 +18,7 @@ export default function Footer() {
                     className="object-cover"
                   />
                 </div>
-                <span className="text-xl font-bold tracking-tight text-white">Creatist</span>
+                <span className="text-xl font-medium tracking-tight text-white">Creatist</span>
               </Link>
               <p className="text-white/60 leading-relaxed mb-6">
                 The ultimate collaboration platform for the next generation of creative builders.
@@ -40,7 +40,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-6">Experience</h4>
+              <h4 className="text-white font-medium mb-6">Experience</h4>
               <ul className="space-y-4">
                 <li><Link href="/#community" className="text-white/60 hover:text-white transition-colors">Community</Link></li>
                 <li><Link href="/#roles" className="text-white/60 hover:text-white transition-colors">Creator Roles</Link></li>
@@ -50,7 +50,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-6">Community</h4>
+              <h4 className="text-white font-medium mb-6">Community</h4>
               <ul className="space-y-4">
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Discord</Link></li>
                 <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Creator Network</Link></li>
@@ -60,7 +60,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-white font-bold mb-6">Company</h4>
+              <h4 className="text-white font-medium mb-6">Company</h4>
               <ul className="space-y-4">
                 <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Support</Link></li>
                 <li><Link href="/privacy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>

@@ -50,7 +50,7 @@ export default function Features() {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">
             Powerful Features for <br />
             Modern Creators
           </h2>
@@ -71,7 +71,7 @@ export default function Features() {
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-6 shadow-xl`}>
                 <feature.icon size={24} />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-brand transition-colors">
+              <h3 className="text-2xl font-medium text-white mb-4 group-hover:text-brand transition-colors">
                 {feature.title}
               </h3>
               <p className="text-white/60 leading-relaxed">

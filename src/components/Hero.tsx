@@ -55,7 +55,7 @@ export default function Hero() {
         >
           {/* Launch Celebration badge removed */}
           
-          <h1 className="text-5xl md:text-8xl font-black text-white mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-5xl md:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1] tracking-tight">
             Create Together. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-pink-500">Build Together.</span>
           </h1>
@@ -74,7 +74,7 @@ export default function Hero() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
                   onClick={() => setShowInput(true)}
-                  className="px-10 py-5 rounded-[32px] font-black text-xl glass-button-primary flex items-center gap-3 whitespace-nowrap"
+                  className="px-10 py-5 rounded-[32px] font-semibold tracking-tight text-xl glass-button-primary flex items-center gap-3 whitespace-nowrap"
                 >
                   Get Early Access
                 </motion.button>
@@ -87,7 +87,7 @@ export default function Hero() {
                   className="flex items-center gap-4 px-8 py-5 bg-white/5 border border-white/10 rounded-3xl text-white"
                 >
                   <CheckCircle2 className="text-brand-accent" size={28} />
-                  <span className="text-xl font-bold whitespace-nowrap">You're on the list!</span>
+                  <span className="text-xl font-medium whitespace-nowrap">You're on the list!</span>
                 </motion.div>
               ) : (
                 <motion.form
@@ -115,7 +115,7 @@ export default function Hero() {
                     <button
                       type="submit"
                       disabled={isLoading}
-                      className="absolute right-2 px-8 py-4 rounded-[24px] font-bold text-lg glass-button disabled:opacity-50"
+                      className="absolute right-2 px-8 py-4 rounded-[24px] font-medium text-lg glass-button disabled:opacity-50"
                     >
                       {isLoading ? "..." : "Join"}
                     </button>

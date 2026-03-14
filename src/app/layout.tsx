@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Creatist | Create Together. Build Together.",
@@ -16,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased bg-background overflow-x-hidden min-h-screen relative`}>
+      <body className={`antialiased bg-background overflow-x-hidden min-h-screen relative font-sans`}>
         {/* macOS Tahoe Mesh Background */}
         <div className="fixed inset-0 -z-10 bg-background overflow-hidden pointer-events-none">
           <div className="mesh-blob bg-brand animate-float w-[500px] h-[500px] -top-24 -left-24" />

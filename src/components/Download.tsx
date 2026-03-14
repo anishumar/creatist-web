@@ -25,7 +25,7 @@ export default function Download() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-6xl font-black text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-8">
             Be the First to <br />
             Experience Creatist
           </h2>
@@ -57,7 +57,7 @@ export default function Download() {
                         initial={{ y: 2, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         exit={{ y: -2, opacity: 0 }}
-                        className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-accent"
+                        className="text-[10px] font-semibold tracking-tight uppercase tracking-[0.2em] text-brand-accent"
                       >
                         Soon
                       </motion.div>
@@ -66,14 +66,14 @@ export default function Download() {
                         key="idle"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 0.4 }}
-                        className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                        className="text-[10px] font-medium uppercase tracking-[0.2em]"
                       >
                         Coming Soon
                       </motion.div>
                     )}
                   </AnimatePresence>
                 </div>
-                <div className="text-2xl font-bold tracking-tight">App Store</div>
+                <div className="text-2xl font-medium tracking-tight">App Store</div>
               </div>
             </motion.button>
 
@@ -94,9 +94,9 @@ export default function Download() {
               </div>
               <div className="flex flex-col items-start leading-tight">
                 <div className="h-4 flex items-center">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">Join Beta</div>
+                  <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">Join Beta</div>
                 </div>
-                <div className="text-2xl font-bold tracking-tight">TestFlight</div>
+                <div className="text-2xl font-medium tracking-tight">TestFlight</div>
               </div>
             </a>
           </div>

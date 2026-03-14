@@ -9,7 +9,7 @@ export default function PrivacyPage() {
       
       <div className="pt-40 pb-20 px-6">
         <div className="max-w-4xl mx-auto glass p-8 md:p-16 rounded-[48px] border border-white/10 shadow-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Privacy Policy</h1>
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Privacy Policy</h1>
           <p className="text-white/60 mb-12">Last updated: March 2026</p>
 
           <section className="space-y-12 text-white/80 leading-relaxed">
@@ -20,7 +20,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-white">Information We Collect</h2>
+              <h2 className="text-2xl font-medium text-white">Information We Collect</h2>
               <p>When you use Creatist, we may collect the following information:</p>
               <ul className="list-disc pl-6 space-y-3 marker:text-brand-accent">
                 <li>Account information (name, email address, username)</li>
@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">How We Use Information</h2>
+              <h2 className="text-2xl font-medium text-white">How We Use Information</h2>
               <p>We use your information to:</p>
               <ul className="list-disc pl-6 space-y-3 marker:text-brand-accent">
                 <li>Provide and maintain the Creatist platform</li>
@@ -43,28 +43,28 @@ export default function PrivacyPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">User Content</h2>
+              <h2 className="text-2xl font-medium text-white">User Content</h2>
               <p>
                 Users may upload photos, posts, and other content. Creatist does not claim ownership of user content but may store and display it to provide the service.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Data Security</h2>
+              <h2 className="text-2xl font-medium text-white">Data Security</h2>
               <p>
                 We take reasonable measures to protect your data and prevent unauthorized access.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Third-Party Services</h2>
+              <h2 className="text-2xl font-medium text-white">Third-Party Services</h2>
               <p>
                 Creatist may use third-party services such as authentication providers or analytics tools to operate the platform.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Contact Us</h2>
+              <h2 className="text-2xl font-medium text-white">Contact Us</h2>
               <p>If you have questions about this Privacy Policy, please contact us:</p>
               <a href="mailto:creatist.swift@gmail.com" className="text-brand-accent hover:underline font-medium">creatist.swift@gmail.com</a>
             </div>

@@ -26,7 +26,7 @@ export default function CreatorRoles() {
     <section id="roles" className="py-24 bg-transparent relative overflow-hidden text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-4">
             Built for Every Creator
           </h2>
           <p className="text-white/60 text-lg max-w-2xl mx-auto">
@@ -51,7 +51,7 @@ export default function CreatorRoles() {
               <div className={`w-14 h-14 ${role.color} rounded-2xl flex items-center justify-center text-white mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
                 <role.icon size={28} />
               </div>
-              <h3 className="text-white font-bold text-center group-hover:text-brand-accent transition-colors">
+              <h3 className="text-white font-medium text-center group-hover:text-brand-accent transition-colors">
                 {role.name}
               </h3>
             </motion.div>

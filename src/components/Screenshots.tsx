@@ -41,7 +41,7 @@ export default function Screenshots() {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight tracking-tight">
+                  <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-6 leading-tight tracking-tight">
                     {item.title}
                   </h2>
                   <p className="text-xl text-white/70 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
@@ -51,7 +51,7 @@ export default function Screenshots() {
                     <div className="px-6 py-3 glass border border-white/10 rounded-2xl text-white/80 font-medium">
                       Built for Creators
                     </div>
-                    <div className="px-6 py-3 glass-bright border border-brand-accent/20 rounded-2xl text-brand-accent font-bold">
+                    <div className="px-6 py-3 glass-bright border border-brand-accent/20 rounded-2xl text-brand-accent font-medium">
                       Seamless Flow
                     </div>
                   </div>

@@ -9,7 +9,7 @@ export default function SupportPage() {
       
       <div className="pt-40 pb-20 px-6">
         <div className="max-w-4xl mx-auto glass p-8 md:p-16 rounded-[48px] border border-white/10 shadow-2xl">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">Support</h1>
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight mb-8">Support</h1>
           
           <section className="space-y-12 text-white/80 leading-relaxed">
             <div>
@@ -20,10 +20,10 @@ export default function SupportPage() {
             </div>
 
             <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Contact Support</h2>
+              <h2 className="text-2xl font-medium text-white">Contact Support</h2>
               <p>If you have any questions or issues, please contact us:</p>
               <div className="p-6 bg-white/5 border border-white/10 rounded-2xl mt-4">
-                <a href="mailto:support@creatist.app" className="text-brand-accent hover:underline font-bold text-lg flex items-center gap-2">
+                <a href="mailto:support@creatist.app" className="text-brand-accent hover:underline font-medium text-lg flex items-center gap-2">
                   <span>📧</span> support@creatist.app
                 </a>
                 <p className="text-sm text-white/40 mt-3 italic">We usually respond within 24–48 hours.</p>
@@ -31,20 +31,20 @@ export default function SupportPage() {
             </div>
 
             <div className="space-y-8">
-              <h2 className="text-2xl font-bold text-white border-b border-white/10 pb-4">Common Questions</h2>
+              <h2 className="text-2xl font-medium text-white border-b border-white/10 pb-4">Common Questions</h2>
               
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-white">I cannot log in</h3>
+                <h3 className="text-xl font-medium text-white">I cannot log in</h3>
                 <p>Try resetting your password or reinstalling the app.</p>
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-white">I found inappropriate content</h3>
+                <h3 className="text-xl font-medium text-white">I found inappropriate content</h3>
                 <p>Please use the **Report** feature inside the app.</p>
               </div>
 
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-white">I want to collaborate with creators</h3>
+                <h3 className="text-xl font-medium text-white">I want to collaborate with creators</h3>
                 <p>Use the **Discover** tab to find creators and start collaborations.</p>
               </div>
             </div>

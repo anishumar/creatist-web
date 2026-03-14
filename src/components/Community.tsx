@@ -46,7 +46,7 @@ export default function Community() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tight">
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-white mb-8 tracking-tight">
               Join the next generation of <br className="hidden md:block" />
               creators collaborating worldwide.
             </h2>
@@ -64,7 +64,7 @@ export default function Community() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8, filter: "blur(8px)" }}
                       onClick={() => setShowInput(true)}
-                      className="px-12 py-5 rounded-[32px] font-black text-xl glass-button-primary whitespace-nowrap"
+                      className="px-12 py-5 rounded-[32px] font-semibold tracking-tight text-xl glass-button-primary whitespace-nowrap"
                     >
                       Get Early Access
                     </motion.button>
@@ -77,7 +77,7 @@ export default function Community() {
                     className="flex items-center gap-4 px-8 py-5 glass border border-white/10 rounded-3xl text-white"
                   >
                     <CheckCircle2 className="text-brand-accent" size={28} />
-                    <span className="text-xl font-bold whitespace-nowrap">You're on the list!</span>
+                    <span className="text-xl font-medium whitespace-nowrap">You're on the list!</span>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -105,7 +105,7 @@ export default function Community() {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="absolute right-2 px-8 py-4 rounded-[24px] font-bold text-lg glass-button disabled:opacity-50"
+                        className="absolute right-2 px-8 py-4 rounded-[24px] font-medium text-lg glass-button disabled:opacity-50"
                       >
                         {isLoading ? "..." : "Join"}
                       </button>
