@@ -32,8 +32,16 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
     return () => window.removeEventListener("trigger-early-access", handleTrigger);
   }, [listenToEvents]);
 
+  const isValidEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isValidEmail(email)) {
+      window.dispatchEvent(new CustomEvent("trigger-status-message", {
+        detail: { message: "Please enter a valid email address." }
+      }));
+      return;
+    }
     if (email && !isLoading) {
       setIsLoading(true);
       try {
