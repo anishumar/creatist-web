@@ -68,21 +68,11 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
   };
 
   return (
-    <motion.div 
-      layout 
-      transition={{
-        type: "spring",
-        stiffness: 200,
-        damping: 25,
-        mass: 0.5
-      }}
-      className="flex flex-col items-center justify-center w-full max-w-xl mx-auto min-h-[80px]"
-    >
+    <div className="flex flex-col items-center justify-center w-full max-w-xl mx-auto" style={{ height: '84px' }}>
       <AnimatePresence mode="wait" initial={false}>
         {!showInput ? (
           <motion.button
             key={`${id}-button`}
-            layout
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9, filter: "blur(4px)" }}
@@ -94,7 +84,6 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
         ) : isSubmitted ? (
           <motion.div
             key={`${id}-success`}
-            layout
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             className="flex items-center gap-4 px-8 py-5 bg-white/5 border border-white/10 rounded-3xl text-white"
@@ -105,7 +94,6 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
         ) : (
           <motion.form
             key={`${id}-form`}
-            layout
             initial={{ opacity: 0, scale: 0.98, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, y: -10 }}
@@ -128,11 +116,11 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
               <input
                 autoFocus
                 type="email"
-                placeholder="Enter your email address"
+                placeholder="Enter your email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-auto flex-grow pl-4 pr-32 py-4 bg-transparent text-xl text-white outline-none transition-all placeholder:text-white/20"
+                className="min-w-0 flex-grow pl-4 pr-32 py-4 bg-transparent text-xl text-white outline-none transition-all placeholder:text-white/20"
               />
               <motion.button
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -151,6 +139,6 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
           </motion.form>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 }
