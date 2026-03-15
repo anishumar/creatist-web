@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, Mail } from "lucide-react";
 import { useState, useEffect } from "react";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 interface EarlyAccessFormProps {
   id: string;
@@ -12,6 +13,7 @@ interface EarlyAccessFormProps {
 export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAccessFormProps) {
   const [showInput, setShowInput] = useState(false);
   const [email, setEmail] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,7 +52,10 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ 
+            email, 
+            cf_turnstile_response: turnstileToken || undefined 
+          }),
         });
 
         const result = await response.json();
@@ -144,6 +149,20 @@ export default function EarlyAccessForm({ id, listenToEvents = false }: EarlyAcc
                 Join
               </motion.button>
             </div>
+            
+            {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+              <div className="flex justify-center pt-2">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                  onSuccess={(token) => {
+                    console.log("Turnstile generated token successfully!");
+                    setTurnstileToken(token);
+                  }}
+                  onError={() => console.error("Turnstile verification error in widget.")}
+                  options={{ theme: 'dark' }}
+                />
+              </div>
+            )}
           </motion.form>
         )}
       </AnimatePresence>
