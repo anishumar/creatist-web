@@ -1,11 +1,8 @@
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-transparent min-h-screen text-white selection:bg-brand-accent/30">
-      <Navbar />
+    <main className="bg-transparent min-h-screen text-white selection:bg-brand-accent/30 text-center">
       
       <div className="pt-40 pb-20 px-6">
         <div className="max-w-4xl mx-auto glass p-8 md:p-16 rounded-[48px] border border-white/10 shadow-2xl">
@@ -70,15 +67,9 @@ export default function PrivacyPage() {
             </div>
           </section>
 
-          <div className="mt-20 pt-10 border-t border-white/10">
-            <Link href="/" className="text-white/40 hover:text-white transition-colors flex items-center gap-2">
-              <span>← Back to Home</span>
-            </Link>
-          </div>
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }

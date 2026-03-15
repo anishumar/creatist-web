@@ -2,14 +2,52 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Download() {
   const [showComingSoon, setShowComingSoon] = useState(false);
+  const [waitlistConfig, setWaitlistConfig] = useState({ 
+    testflight: { is_live: false, message: "The queue is full, join the waitlist", link: "" },
+    app_store: { is_live: false, message: "Coming Soon", link: "" }
+  });
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/waitlist/config`);
+        if (response.ok) {
+          const data = await response.json();
+          setWaitlistConfig(data);
+        }
+      } catch (error) {
+        console.error("Error fetching waitlist config:", error);
+      }
+    };
+    fetchConfig();
+  }, []);
 
   const handleAppStoreClick = () => {
-    setShowComingSoon(true);
-    setTimeout(() => setShowComingSoon(false), 2000);
+    if (waitlistConfig.app_store.is_live) {
+      window.open(waitlistConfig.app_store.link, "_blank");
+    } else {
+      setShowComingSoon(true);
+      setTimeout(() => setShowComingSoon(false), 2000);
+      
+      window.dispatchEvent(new CustomEvent("trigger-status-message", { 
+        detail: { message: waitlistConfig.app_store.message } 
+      }));
+    }
+  };
+
+  const handleTestFlightClick = () => {
+    if (waitlistConfig.testflight.is_live) {
+      window.open(waitlistConfig.testflight.link, "_blank");
+    } else {
+      window.dispatchEvent(new CustomEvent("trigger-status-message", { 
+        detail: { message: waitlistConfig.testflight.message } 
+      }));
+      window.dispatchEvent(new CustomEvent("trigger-navbar-pulse"));
+    }
   };
 
   return (
@@ -50,38 +88,18 @@ export default function Download() {
               </div>
               <div className="flex flex-col items-start leading-tight">
                 <div className="h-4 flex items-center">
-                  <AnimatePresence mode="wait">
-                    {showComingSoon ? (
-                      <motion.div
-                        key="active"
-                        initial={{ y: 2, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -2, opacity: 0 }}
-                        className="text-[10px] font-semibold tracking-tight uppercase tracking-[0.2em] text-brand-accent"
-                      >
-                        Soon
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="idle"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.4 }}
-                        className="text-[10px] font-medium uppercase tracking-[0.2em]"
-                      >
-                        Coming Soon
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/40">
+                    Coming Soon
+                  </div>
                 </div>
                 <div className="text-2xl font-medium tracking-tight">App Store</div>
               </div>
             </motion.button>
 
             {/* TestFlight Join Beta */}
-            <a 
-              href="https://testflight.apple.com/join/GAvshvEp"
-              target="_blank"
-              rel="noopener noreferrer"
+            <motion.button 
+              whileTap={{ scale: 0.98 }}
+              onClick={handleTestFlightClick}
               className="flex items-center gap-5 px-7 h-24 glass-button hover:border-brand-accent/40 text-white rounded-[32px] w-full sm:w-[280px] hover:scale-[1.02] group transition-all duration-300"
             >
               <div className="relative w-12 h-12 flex-shrink-0 group-hover:scale-110 transition-transform duration-500">
@@ -98,7 +116,7 @@ export default function Download() {
                 </div>
                 <div className="text-2xl font-medium tracking-tight">TestFlight</div>
               </div>
-            </a>
+            </motion.button>
           </div>
         </motion.div>
       </div>

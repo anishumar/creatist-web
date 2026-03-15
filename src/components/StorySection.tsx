@@ -6,25 +6,25 @@ import Image from "next/image";
 
 const stories = [
   {
-    title: "Discover Your Next Collaborator",
+    title: "Discover Collaborators",
     description: "Search and discover talented creators by role and build your dream collaboration team. Connect with designers, developers, and artists worldwide.",
     images: ["/images/stories/discover-main-page.png", "/images/stories/discover-inside.png"],
-    color: "from-brand-accent to-rose-600",
+    color: "from-brand-accent to-rose-500",
   },
   {
-    title: "Project Vision Boards",
+    title: "Create Visionboards",
     description: "Organize ideas, manage creative projects, and collaborate with your team in one place. Build beautiful vision boards that align your vision.",
     images: [
       "/images/stories/visionboard-main.png", 
       "/images/stories/visionboard-main3.png"
     ],
-    color: "from-royal to-blue-600",
+    color: "from-brand-accent to-rose-500",
   },
   {
-    title: "Dynamic Creator Feed",
+    title: "Showcase Works",
     description: "Stay updated with what your network is building. Share your latest work and get inspired by the global creator community.",
     images: ["/images/stories/feed-new.png"],
-    color: "from-vision-maroon to-vision-purple",
+    color: "from-brand-accent to-rose-500",
   },
 ];
 
@@ -101,10 +101,12 @@ export default function StorySection() {
                   >
                     Story 0{index + 1}
                   </motion.span>
-                  <h2 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.1] tracking-tight">
+                  <h2 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-8 leading-[1.05]">
                     {story.title.split(' ').map((word, i) => (
-                      <span key={i} className={i % 2 === 1 ? `text-transparent bg-clip-text bg-gradient-to-r ${story.color}` : ""}>
-                        {word}{" "}
+                      <span key={i} className="block">
+                        <span className={i % 2 === 1 ? `text-transparent bg-clip-text bg-gradient-to-r ${story.color}` : ""}>
+                          {word}
+                        </span>
                       </span>
                     ))}
                   </h2>

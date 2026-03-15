@@ -1,11 +1,8 @@
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 export default function SupportPage() {
   return (
     <main className="bg-transparent min-h-screen text-white selection:bg-brand-accent/30">
-      <Navbar />
       
       <div className="pt-40 pb-20 px-6">
         <div className="max-w-4xl mx-auto glass p-8 md:p-16 rounded-[48px] border border-white/10 shadow-2xl">
@@ -50,16 +47,9 @@ export default function SupportPage() {
             </div>
           </section>
 
-          <footer className="mt-20 pt-10 border-t border-white/10 flex justify-between items-center text-white/40 text-sm">
-             <Link href="/" className="hover:text-white transition-colors flex items-center gap-2">
-                <span>← Back to Home</span>
-              </Link>
-             <span>© 2026 Creatist</span>
-          </footer>
         </div>
       </div>
 
-      <Footer />
     </main>
   );
 }

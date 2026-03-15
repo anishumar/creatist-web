@@ -29,45 +29,41 @@ export default function Footer() {
             </div>
 
             <div>
-              <h4 className="text-white font-medium mb-6">Experience</h4>
-              <ul className="space-y-4">
+              <h4 className="text-white font-medium mb-6">Product</h4>
+              <ul className="space-y-4 text-sm">
                 <li><Link href="/#community" className="text-white/60 hover:text-white transition-colors">Community</Link></li>
                 <li><Link href="/#roles" className="text-white/60 hover:text-white transition-colors">Creator Roles</Link></li>
-                <li><Link href="/" className="text-white/60 hover:text-white transition-colors">Early Access</Link></li>
-                <li><Link href="/" className="text-white/60 hover:text-white transition-colors">Waitlist</Link></li>
+                <li><Link href="/#download" className="text-white/60 hover:text-white transition-colors">TestFlight</Link></li>
+                <li><Link href="/#download" className="text-white/60 hover:text-white transition-colors">App Store</Link></li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-white font-medium mb-6">Community</h4>
-              <ul className="space-y-4">
-                <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Discord</Link></li>
-                <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Creator Network</Link></li>
-                <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Events</Link></li>
-                <li><Link href="#" className="text-white/60 hover:text-white transition-colors">Guides</Link></li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-medium mb-6">Company</h4>
-              <ul className="space-y-4">
+              <h4 className="text-white font-medium mb-6">Resources</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/help" className="text-white/60 hover:text-white transition-colors">Help Center</Link></li>
                 <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Support</Link></li>
+                <li><Link href="/blog" className="text-white/60 hover:text-white transition-colors">Creator Guides</Link></li>
+                <li><Link href="/brand" className="text-white/60 hover:text-white transition-colors">Brand Assets</Link></li>
+                <li><Link href="/contact" className="text-white/60 hover:text-white transition-colors">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="text-white font-medium mb-6">Legal</h4>
+              <ul className="space-y-4 text-sm">
+                <li><Link href="/terms" className="text-white/60 hover:text-white transition-colors">Terms of Service</Link></li>
                 <li><Link href="/privacy" className="text-white/60 hover:text-white transition-colors">Privacy Policy</Link></li>
                 <li><Link href="/privacy-choices" className="text-white/60 hover:text-white transition-colors">Privacy Choices</Link></li>
-                <li><Link href="/support" className="text-white/60 hover:text-white transition-colors">Contact</Link></li>
+                <li><Link href="/cookies" className="text-white/60 hover:text-white transition-colors">Cookie Policy</Link></li>
               </ul>
             </div>
           </div>
 
           <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-white/40 text-sm">
-              © {new Date().getFullYear()} Creatist. All rights reserved.
+            <p className="text-white/40 text-xs font-medium tracking-wide">
+              © {new Date().getFullYear()} CREATIST INC. MADE WITH ❤️ FOR CREATORS.
             </p>
-            <div className="flex items-center gap-8">
-              <Link href="/privacy" className="text-white/40 hover:text-white text-sm transition-colors">Privacy</Link>
-              <Link href="/support" className="text-white/40 hover:text-white text-sm transition-colors">Support</Link>
-              <Link href="/privacy-choices" className="text-white/40 hover:text-white text-sm transition-colors">Privacy Choices</Link>
-            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import StatusMessage from "@/components/StatusMessage";
 
 export const metadata: Metadata = {
   title: "Creatist | Create Together. Build Together.",
@@ -32,7 +35,10 @@ export default function RootLayout({
           <div className="mesh-blob bg-purple-600 animate-float w-[400px] h-[400px] bottom-0 left-1/4 delay-500" style={{ animationDuration: '30s' }} />
         </div>
         <div className="relative z-0">
+          <Navbar />
           {children}
+          <Footer />
+          <StatusMessage />
         </div>
       </body>
     </html>

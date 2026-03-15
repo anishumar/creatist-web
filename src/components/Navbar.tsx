@@ -14,6 +14,8 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isPulsing, setIsPulsing] = useState(false);
+  const [isTinted, setIsTinted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -22,15 +24,44 @@ export default function Navbar() {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    
+    const handlePulse = () => {
+      setIsPulsing(true);
+      setIsTinted(true);
+      setTimeout(() => setIsPulsing(false), 2000);
+    };
+    window.addEventListener("trigger-navbar-pulse", handlePulse);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("trigger-navbar-pulse", handlePulse);
+    };
   }, []);
 
   const handleCTA = () => {
     if (pathname !== "/") {
-      router.push("/");
+      router.push("/#get-early-access");
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
+      window.dispatchEvent(new CustomEvent("trigger-early-access"));
     }
+  };
+
+  const pulseVariants: any = {
+    pulse: {
+      scale: [1, 1.05, 1],
+      boxShadow: [
+        "inset 0 1px 1px rgba(255,255,255,0.3), 0 4px 12px rgba(250,45,72,0.3)",
+        "inset 0 1px 1px rgba(255,255,255,0.5), 0 8px 32px rgba(250,45,72,0.6)",
+        "inset 0 1px 1px rgba(255,255,255,0.3), 0 4px 12px rgba(250,45,72,0.3)"
+      ],
+      transition: {
+        duration: 0.5,
+        repeat: 3,
+        ease: "easeInOut"
+      }
+    },
+    idle: { scale: 1 }
   };
 
   return (
@@ -67,12 +98,16 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <button 
+          <motion.button 
+            variants={pulseVariants}
+            animate={isPulsing ? "pulse" : "idle"}
             onClick={handleCTA}
-            className="px-8 py-3 rounded-full font-medium glass-button"
+            className={`px-8 py-3 rounded-full font-medium transition-all duration-500 ${
+              isTinted ? "glass-button-primary" : "glass-button"
+            }`}
           >
             Get Early Access
-          </button>
+          </motion.button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -93,7 +128,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 right-0 bg-dark-darker border-b border-white/10 py-6 md:hidden"
           >
-            <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-6 px-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -104,15 +139,19 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-                <button 
+                <motion.button 
+                  variants={pulseVariants}
+                  animate={isPulsing ? "pulse" : "idle"}
                   onClick={() => {
                     setIsOpen(false);
                     handleCTA();
                   }}
-                  className="w-full py-4 rounded-2xl font-medium glass-button-primary"
+                  className={`w-full py-4 rounded-2xl font-medium transition-all duration-500 ${
+                    isTinted ? "glass-button-primary" : "glass-button"
+                  }`}
                 >
                   Get Early Access
-                </button>
+                </motion.button>
             </div>
           </motion.div>
         )}
