@@ -14,8 +14,6 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isPulsing, setIsPulsing] = useState(false);
-  const [isTinted, setIsTinted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
@@ -23,39 +21,15 @@ export default function Navbar() {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
 
-    const handlePulse = () => {
-      setIsPulsing(true);
-      setIsTinted(true);
-      setTimeout(() => setIsPulsing(false), 2000);
-    };
-    window.addEventListener("trigger-navbar-pulse", handlePulse);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("trigger-navbar-pulse", handlePulse);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleCTA = () => {
     if (pathname !== "/") {
-      router.push("/#get-early-access");
+      router.push("/#download");
     } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      window.dispatchEvent(new CustomEvent("trigger-early-access"));
+      document.getElementById("download")?.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  const pulseVariants: any = {
-    pulse: {
-      scale: [1, 1.05, 1],
-      boxShadow: [
-        "inset 0 1px 1px rgba(255,255,255,0.3), 0 4px 12px rgba(250,45,72,0.3)",
-        "inset 0 1px 1px rgba(255,255,255,0.5), 0 8px 32px rgba(250,45,72,0.6)",
-        "inset 0 1px 1px rgba(255,255,255,0.3), 0 4px 12px rgba(250,45,72,0.3)"
-      ],
-      transition: { duration: 0.5, repeat: 3, ease: "easeInOut" }
-    },
-    idle: { scale: 1 }
   };
 
   return (
@@ -92,14 +66,10 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <motion.button
-            variants={pulseVariants}
-            animate={isPulsing ? "pulse" : "idle"}
             onClick={handleCTA}
-            className={`px-8 py-3 rounded-full font-medium transition-all duration-500 ${
-              isTinted ? "glass-button-primary" : "glass-button"
-            }`}
+            className="px-8 py-3 rounded-full font-medium glass-button transition-all duration-500"
           >
-            Get Early Access
+            Download Now
           </motion.button>
         </div>
 
@@ -146,7 +116,7 @@ export default function Navbar() {
                   onClick={() => { setIsOpen(false); handleCTA(); }}
                   className="w-full text-left text-xl font-medium text-white/80 py-4"
                 >
-                  Get Early Access
+                  Download Now
                 </button>
               </motion.div>
             </div>

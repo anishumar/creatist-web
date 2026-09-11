@@ -1,9 +1,8 @@
 "use client";
 
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
-import { Users, Globe, Sparkles } from "lucide-react";
-import EarlyAccessForm from "./EarlyAccessForm";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import DownloadCTA from "./DownloadCTA";
 
 export default function Community() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,7 +37,7 @@ export default function Community() {
             Don't create in isolation. Connect with the best talent in the industry and build something legendary.
           </p>
 
-          <EarlyAccessForm id="community" />
+          <DownloadCTA />
         </motion.div>
       </div>
       

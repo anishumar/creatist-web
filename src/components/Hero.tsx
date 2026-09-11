@@ -1,8 +1,7 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-import EarlyAccessForm from "./EarlyAccessForm";
+import { motion } from "framer-motion";
+import DownloadCTA from "./DownloadCTA";
 
 export default function Hero() {
 
@@ -30,7 +29,7 @@ export default function Hero() {
             Creatist is the ultimate platform where creators find collaborators, manage projects, and build amazing work together. Join the community.
           </p>
 
-          <EarlyAccessForm id="hero" listenToEvents={true} />
+          <DownloadCTA />
         </motion.div>
       </div>
     </section>

@@ -33,7 +33,6 @@ export default function Footer() {
               <ul className="space-y-4 text-sm">
                 <li><Link href="/#community" className="text-white/60 hover:text-white transition-colors">Community</Link></li>
                 <li><Link href="/#roles" className="text-white/60 hover:text-white transition-colors">Creator Roles</Link></li>
-                <li><Link href="/#download" className="text-white/60 hover:text-white transition-colors">TestFlight</Link></li>
                 <li><Link href="/#download" className="text-white/60 hover:text-white transition-colors">App Store</Link></li>
               </ul>
             </div>

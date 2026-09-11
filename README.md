@@ -21,15 +21,7 @@ This project requires [Node.js](https://nodejs.org/) (Version 18+ recommended). 
 npm install
 ```
 
-### 3. Configure Environment Variables
-The web app needs to know where your backend API is located. Create a `.env.local` file in the `creatist-web` root directory:
-
-```bash
-# .env.local
-NEXT_PUBLIC_API_URL=http://localhost:8080
-```
-
-### 4. Launch the Development Server
+### 3. Launch the Development Server
 Start the local server with hot-reloading enabled:
 
 ```bash
@@ -41,7 +33,7 @@ Once started, navigate to [http://localhost:3000](http://localhost:3000) in your
 
 ## 🛠 Full-Stack Setup (Backend)
 
-The web app requires the **CreatistBackend** to handle user data and collaborations. If you are running the full stack locally, follow these instructions for the Python backend:
+The marketing site is fully static and needs no backend. The **CreatistBackend** serves the iOS app; if you are running the full stack locally, follow these instructions for the Python backend:
 
 ### 1. Initialize Python Environment
 Navigate to the backend directory and create a dedicated virtual environment:
