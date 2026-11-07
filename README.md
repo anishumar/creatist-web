@@ -1,86 +1,28 @@
-#  Creatist Web
+# Creatist Web
 
-Welcome to the official web platform for **Creatist** — the ultimate collaboration hub designed for the next generation of creative builders. Experience a premium, macOS-inspired interface built for high-performance collaboration.
+Product website for [Creatist](https://apps.apple.com/in/app/creatist/id6749386120), an iOS app where creators discover each other and collaborate on ideas.
 
-## 🚀 Quick Start Guide
+**Live site:** [creatist-web.vercel.app](https://creatist-web.vercel.app)
 
-Follow these steps to clone, install, and run the Creatist web application on your local machine.
+## What's here
 
-### 1. Clone the Project
-First, clone the entire Creatist ecosystem and navigate to the web directory:
+- Responsive landing page with hero, features, creator roles, screenshots, community, and download sections
+- Privacy, privacy choices, and support pages
+- Reusable components in `src/components`, with animation from Framer Motion
 
-```bash
-git clone https://github.com/anishumar/Creatist.git
-cd Creatist/creatist-web
-```
+## Tech stack
 
-### 2. Install Web Dependencies
-This project requires [Node.js](https://nodejs.org/) (Version 18+ recommended). Use the following command to install all necessary packages:
+Next.js, React, TypeScript, Tailwind CSS, Framer Motion
+
+## Running locally
+
+You need Node.js 18 or later.
 
 ```bash
 npm install
-```
-
-### 3. Launch the Development Server
-Start the local server with hot-reloading enabled:
-
-```bash
 npm run dev
 ```
-Once started, navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
----
+The site runs at http://localhost:3000. It's a static marketing site and needs no backend.
 
-## 🛠 Full-Stack Setup (Backend)
-
-The marketing site is fully static and needs no backend. The **CreatistBackend** serves the iOS app; if you are running the full stack locally, follow these instructions for the Python backend:
-
-### 1. Initialize Python Environment
-Navigate to the backend directory and create a dedicated virtual environment:
-
-```bash
-cd ../CreatistBackend
-python3 -m venv venv
-
-# Activate on macOS/Linux:
-source venv/bin/activate
-
-# Activate on Windows:
-# venv\Scripts\activate
-```
-
-### 2. Install Requirements
-Ensure you have the latest dependencies installed within your `venv`:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 3. Backend Configuration
-Copy the provided environment template and fill in your Supabase and SMTP secrets:
-
-```bash
-cp .env.example .env
-```
-
-### 4. Run the Backend
-```bash
-python main.py
-```
-
----
-
-## 🏗 Build & Production
-
-To create an optimized production build of the web app:
-
-```bash
-npm run build
-npm start
-```
-
-##  Tech Stack
-- **Framework**: [Next.js 14+](https://nextjs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+The Creatist iOS app and API live in separate private repositories.
