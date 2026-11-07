@@ -25,4 +25,4 @@ npm run dev
 
 The site runs at http://localhost:3000. It's a static marketing site and needs no backend.
 
-The Creatist iOS app and API live in separate private repositories.
+The iOS app is in [CreatistSwiftUI](https://github.com/anishumar/CreatistSwiftUI). The API is in a separate private repository.
